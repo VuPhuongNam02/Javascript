@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Line Indicator</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="tabs">
+        <div class="tab-item active">
+            <i class="tab-icon fas fa-code"></i> PHP
+        </div>
+        <div class="tab-item">
+            <i class="tab-icon fas fa-cog"></i> Python
+        </div>
+        <div class="tab-item">
+            <i class="tab-icon fas fa-plus-circle"></i> Node Js
+        </div>
+        <div class="tab-item">
+            <i class="tab-icon fas fa-pen-nib"></i> Vue.JS
+        </div>
+        <div class="line"></div>
+    </div>
+</body>
+
+<script>
+    var $ = document.querySelector.bind(document);
+    var $$ = document.querySelectorAll.bind(document);
+
+    var tabs = $$('.tab-item');
+    var active = $('.tab-item.active');
+    var line = $('.tabs .line');
+
+    line.style.left = active.offsetLeft + 'px';
+    line.style.width = active.offsetWidth + 'px';
+
+    tabs.forEach(tab => {
+        tab.onclick = function() {
+
+            $('.tab-item.active').classList.remove('active');
+            this.classList.add('active');
+
+            line.style.left = this.offsetLeft + 'px';
+            line.style.width = this.offsetWidth + 'px';
+
+        }
+    })
+</script>
+
+</html>
